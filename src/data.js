@@ -1,0 +1,73 @@
+const expenseData=[
+  {
+    id:"el1",
+    title:"Reacherge",
+    amount:"399",
+    LocationOfExpenditure:"Home",
+    date:new Date(),
+  },
+  {
+    id:"el2",
+    title:"Phone",
+    amount:"8999",
+    LocationOfExpenditure:"Mall",
+    date:new Date(),
+  },
+  {
+    id:"el3",
+    title:"TV",
+    amount:"8399",
+    LocationOfExpenditure:"Mohan",
+    date:new Date(),
+  },
+  {
+    id:"el4",
+    title:"Car Insurance",
+    amount:"699",
+    LocationOfExpenditure:"Motor Shop",
+    date:new Date(),
+  },
+  {
+    id:"el5",
+    title:"Petrol",
+    amount:"1099",
+    LocationOfExpenditure:"Petrol Pump",
+    date:new Date(),
+  },
+  {
+    id:"el1",
+    title:"Reacherge",
+    amount:"399",
+    LocationOfExpenditure:"Home",
+    date:new Date(),
+  },
+  {
+    id:"el2",
+    title:"Phone",
+    amount:"8999",
+    LocationOfExpenditure:"Mall",
+    date:new Date(),
+  },
+  {
+    id:"el3",
+    title:"TV",
+    amount:"8399",
+    LocationOfExpenditure:"Mohan",
+    date:new Date(),
+  },
+  {
+    id:"el4",
+    title:"Car Insurance",
+    amount:"699",
+    LocationOfExpenditure:"Motor Shop",
+    date:new Date(),
+  },
+  {
+    id:"el5",
+    title:"Petrol",
+    amount:"1099",
+    LocationOfExpenditure:"Petrol Pump",
+    date:new Date(),
+  },
+]
+export{expenseData};

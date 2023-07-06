@@ -1,11 +1,14 @@
 
 import ExpenseItems from './components/ExpenseItems';
-
+import { expenseData } from './data';
 function App() {
+  const newExpenceData=expenseData;
   return (
     <div>
-    <ExpenseItems />
-      
+   {newExpenceData.map((exdata)=>(
+    <ExpenseItems expenceObj={exdata} key={exdata.id}  />
+  ))}
+    
     </div>
   );
 }

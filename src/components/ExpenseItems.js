@@ -1,12 +1,15 @@
+import './ExpenseItem.css';
 
-function ExpenseItems(){
-  return <div>
-  <h2>Expense Items</h2>
-  <p>Food Rs 10</p>
-  <p>Petrol Rs 100</p>
-  <p>Movies Rs 200
+function ExpenseItems({expenceObj}){
+  return <div className='expense-item '>
+  <div>{expenceObj.date.toISOString()}</div>
+  <div className='expense-item__description'>
+  <h1>{expenceObj.title}</h1>
+  <h2>{expenceObj.LocationOfExpenditure}</h2>
+  <div className='expense-item__price'>{expenceObj.amount}
+  </div>
 
-  </p>
+  </div>
   </div>
 }
 export default ExpenseItems;
