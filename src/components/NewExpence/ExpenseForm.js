@@ -1,47 +1,50 @@
 import { useState } from "react";
 import "./ExpenseForm.css";
 export function ExpenseForm() {
-  const [enteredtitle , Setenteredtitle] = useState("");
-  const[enteredAmount,setEnteredAmount]=useState('');
-  const[enteredDate,setEnteredDate]=useState('')
-  function AmountHandel(e){
+  const [enteredtitle, Setenteredtitle] = useState("");
+  const [enteredAmount, setEnteredAmount] = useState("");
+  const [enteredDate, setEnteredDate] = useState("");
+  function AmountHandel(e) {
     setEnteredAmount(e.target.value);
-    console.log(e.target.value)
+    console.log(e.target.value);
   }
-  function DateHandel(e){
+  function DateHandel(e) {
     setEnteredDate(e.target.value);
-    console.log(e.target.value)
+    console.log(e.target.value);
   }
 
-
-    function TitleHandel(e){
-      Setenteredtitle(e.target.value)
-      console.log(e.target.value)
-    }
-
+  function TitleHandel(e) {
+    Setenteredtitle(e.target.value);
+    console.log(e.target.value);
+  }
+function submitHandeler(event){
+  event.preventDefault();
+  const userExpenceData={
+    title:enteredtitle,
+    amount:enteredAmount,
+    date: new Date(enteredDate),
+  }
+  console.log(userExpenceData)
+}
   return (
-    <form>
+    <form onSubmit={submitHandeler}>
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Expense title</label>
-          <input
-            type="text"
-            value={enteredtitle }
-            onChange={TitleHandel}
-          />
+          <input type="text" value={enteredtitle} onChange={TitleHandel} />
         </div>
         <div className="new-expense__control">
           <label>Expense Amount</label>
-          <input type="number" 
-          value={enteredAmount}
-          onChange={AmountHandel}
-          />
+          <input type="number" value={enteredAmount} onChange={AmountHandel} />
         </div>
         <div className="new-expense__control">
           <label>Expense Date</label>
-          <input type="date" placeholder="Date"
-          value={enteredDate}
-          onChange={DateHandel} />
+          <input
+            type="date"
+            placeholder="Date"
+            value={enteredDate}
+            onChange={DateHandel}
+          />
         </div>
       </div>
       <div className="new-expense__actions">
