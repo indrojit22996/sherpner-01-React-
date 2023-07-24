@@ -1,21 +1,21 @@
 import { useState } from "react";
 import "./ExpenseForm.css";
-export function ExpenseForm() {
+export function ExpenseForm(props) {
   const [enteredtitle, Setenteredtitle] = useState("");
   const [enteredAmount, setEnteredAmount] = useState("");
   const [enteredDate, setEnteredDate] = useState("");
   function AmountHandel(e) {
     setEnteredAmount(e.target.value);
-    console.log(e.target.value);
+    // console.log(e.target.value);
   }
   function DateHandel(e) {
     setEnteredDate(e.target.value);
-    console.log(e.target.value);
+    // console.log(e.target.value);
   }
 
   function TitleHandel(e) {
     Setenteredtitle(e.target.value);
-    console.log(e.target.value);
+    // console.log(e.target.value);
   }
 function submitHandeler(event){
   event.preventDefault();
@@ -24,7 +24,10 @@ function submitHandeler(event){
     amount:enteredAmount,
     date: new Date(enteredDate),
   }
-  console.log(userExpenceData)
+  props.onSaveExpenceData(userExpenceData)
+  setEnteredAmount('')
+  Setenteredtitle('');
+  setEnteredDate('')
 }
   return (
     <form onSubmit={submitHandeler}>

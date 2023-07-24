@@ -4,10 +4,15 @@ import "./components/Expence/ExpenseItem.css";
 import Card from "./components/UI/Card";
 import { NewExpense } from "./components/NewExpence/NewExpense";
 const App = () => {
+function handelExpenceData(expence){
+  console.log('App.js');
+  console.log(expence)
+}
+
   const newExpenceData = expenseData;
   return (
     <div>
-      <NewExpense />
+      <NewExpense onAddExpence={handelExpenceData} />
       <Card className="expence">
         {newExpenceData.map((exdata) => (
           <ExpenseItems expenceObj={exdata} key={exdata.id} />
