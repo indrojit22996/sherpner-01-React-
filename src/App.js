@@ -4,6 +4,7 @@ import "./components/Expence/ExpenseItem.css";
 import Card from "./components/UI/Card";
 import { NewExpense } from "./components/NewExpence/NewExpense";
 import { useState } from "react";
+import ExpensesFilter from './components/Expence/ExpensesFilter'
 // let newExpenceData = expenseData;
 
 const App = () => {
@@ -23,6 +24,7 @@ function handelExpenceData(expence){
     <div>
       <NewExpense onAddExpence={handelExpenceData} />
       <Card className="expence">
+      <ExpensesFilter />
         {userData.map((exdata) => (
           <ExpenseItems expenceObj={exdata} key={exdata.id} />
         ))}
