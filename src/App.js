@@ -20,11 +20,11 @@ const App = (props) => {
     setFilterdYear(selectYear);
   }
 
-  const filteredExpence = props.item.filter((expence) => {
-    return expence.date.getFullYear().toString() === filteredyear;
-  });
+  // const filteredExpence = props.item.filter((expence) => {
+  //   return expence.date.getFullYear().toString() === filteredyear;
+  // });
 
-  console.log(filteredExpence);
+  // console.log(filteredExpence);
   return (
     <div>
       <NewExpense onAddExpence={handelExpenceData} />
@@ -33,9 +33,11 @@ const App = (props) => {
           selected={filteredyear}
           onChangeFilter={filterChangeHandeler}
         />
-        {filteredExpence.map((exdata) => (
-          <ExpenseItems expenceObj={exdata} key={exdata.id} />
-        ))}
+        {userData.length === 0 && <p>No Expence Found...</p>}
+        {userData.length > 0 &&
+          userData.map((exdata) => (
+            <ExpenseItems expenceObj={exdata} key={exdata.id} />
+          ))}
       </Card>
     </div>
   );
