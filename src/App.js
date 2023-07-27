@@ -1,47 +1,50 @@
-import ExpenseItems from "./components/Expence/ExpenseItems";
-import { expenseData } from "./data";
-import "./components/Expence/ExpenseItem.css";
-import Card from "./components/UI/Card";
-import { NewExpense } from "./components/NewExpence/NewExpense";
-import { useState } from "react";
-import ExpensesFilter from "./components/Expence/ExpensesFilter";
-// let newExpenceData = expenseData;
+import React, { useState } from 'react';
 
-const App = (props) => {
-  const [userData, setUserData] = useState(expenseData);
+import NewExpense from './components/NewExpense/NewExpense';
+import Expenses from './components/Expenses/Expenses';
 
-  function handelExpenceData(expence) {
-    console.log("App.js");
-    console.log(expence);
-    setUserData([expence, ...expenseData]);
-  }
-  const [filteredyear, setFilterdYear] = useState("2020");
-  function filterChangeHandeler(selectYear) {
-    setFilterdYear(selectYear);
-  }
+const DUMMY_EXPENSES = [
+  {
+    id: 'e1',
+    title: 'Toilet Paper',
+    amount: 94.12,
+    date: new Date(2020, 7, 14),
+  },
+  { id: 'e2', title: 'New TV', amount: 799.49, date: new Date(2021, 2, 12) },
+  {
+    id: 'e3',
+    title: 'Car Insurance',
+    amount: 294.67,
+    date: new Date(2021, 2, 28),
+  },
+  {
+    id: 'e4',
+    title: 'New Desk (Wooden)',
+    amount: 450,
+    date: new Date(2021, 5, 12),
+  },
+];
 
-  // const filteredExpence = props.item.filter((expence) => {
-  //   return expence.date.getFullYear().toString() === filteredyear;
-  // });
+const App = () => {
+  const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
 
-  // console.log(filteredExpence);
+  const addExpenseHandler = (expense) => {
+    setExpenses((prevExpenses) => {
+      return [expense, ...prevExpenses];
+    });
+  };
+
+  // return React.createElement(
+  //   'div',
+  //   {},
+  //   React.createElement('h2', {}, "Let's get started!"),
+  //   React.createElement(Expenses, { items: expenses })
+  // );
+
   return (
     <div>
-      <NewExpense onAddExpence={handelExpenceData} />
-      <Card className="expence">
-        <ExpensesFilter
-          selected={filteredyear}
-          onChangeFilter={filterChangeHandeler}
-        />
-        {userData.length === 0 && <p>No Expence Found...</p>}
-        {userData.length === 1 && (
-          <p>Only single Expense here. Please add more...</p>
-        )}
-        {userData.length > 0 &&
-          userData.map((exdata) => (
-            <ExpenseItems expenceObj={exdata} key={exdata.id} />
-          ))}
-      </Card>
+      <NewExpense onAddExpense={addExpenseHandler} />
+      <Expenses items={expenses} />
     </div>
   );
 };
