@@ -34,6 +34,9 @@ const App = (props) => {
           onChangeFilter={filterChangeHandeler}
         />
         {userData.length === 0 && <p>No Expence Found...</p>}
+        {userData.length === 1 && (
+          <p>Only single Expense here. Please add more...</p>
+        )}
         {userData.length > 0 &&
           userData.map((exdata) => (
             <ExpenseItems expenceObj={exdata} key={exdata.id} />
